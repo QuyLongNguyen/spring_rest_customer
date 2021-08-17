@@ -1,3 +1,3 @@
 # Customer tracker using *Spring REST*
 
-![api table](api-table.png)
+![api table](api_table.png)
