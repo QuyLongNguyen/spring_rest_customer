@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <title>Rest routing</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    </head>
+    <body class="container">
+      <table class="table mt-5 border">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"><strong>API Endpoint</strong></th>
+            <th scope="col"><strong>HTTP verb</strong></th>
+            <th scope="col"><strong>Purpose</strong></th>
+            <th scope="col"><strong>Authority</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-success">
+            <th scope="row">/api/customers</th>
+            <td>GET</td>
+            <td>Get <i>all</i> customers</td>
+            <td>USER</td>
+          </tr>
+          <tr class="table-success">
+            <th scope="row">/api/customers/{id}</th>
+            <td>GET</td>
+            <td>Get customer with indicated <id>id</id></td>
+            <td>USER</td>
+          </tr>
+          <tr class="table-primary">
+            <th scope="row">/api/customers</th>
+            <td>POST</td>
+            <td>Auto-generated <i>id</i> for customer and insert into databse </td>
+            <td>MANAGER</td>
+          </tr>
+          <tr class="table-warning">
+            <th scope="row">/api/customers</th>
+            <td>PUT</td>
+            <td>Update a customer with request body <i>id</i></td>
+            <td>MANAGER</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">/api/customers/{id}</th>
+            <td>DELETE</td>
+            <td>Delete a customer with indicated <i>id</i></td>
+            <td>ADMIN</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      <table class="table mt-5 border">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"><strong>Authority</strong></th>
+            <th scope="col"><strong>Username</strong></th>
+            <th scope="col"><strong>Password</strong></th>
+  
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-active">
+            <th scope="row">USER</th>
+            <td>user</td>
+            <td>123456</td>
+         
+          </tr>
+           <tr class="table-info">
+            <th scope="row" >MANAGER, USER</th>
+            <td >manager</td>
+            <td >123456</td>
+          </tr>
+         
+         </tr>
+           <tr class="table-success">
+            <th scope="row" >ADMIN, MANAGER, USER</th>
+            <td >admin</td>
+            <td >123456</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </body>
+  </html>

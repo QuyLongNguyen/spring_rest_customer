@@ -38,9 +38,8 @@ public class CustomerRestController {
 	}
 
 
-	
 	@GetMapping("/customers/{id}")
-	public Customer getEmployee(@PathVariable int id) {
+	public Customer getCustomer(@PathVariable int id) {
 		
 		Customer theEmployee = customerService.findById(id);
 		
@@ -54,7 +53,7 @@ public class CustomerRestController {
 	
 	
 	@PostMapping("/customers")
-	public Customer addEmployee(@RequestBody Customer customer) {
+	public Customer addCustomer(@RequestBody Customer customer) {
 		
 		// also just in case they pass an id in JSON ... set id to 0
 		// this is to force a save of new item ... instead of update
@@ -69,7 +68,7 @@ public class CustomerRestController {
 	
 	
 	@PutMapping("/customers")
-	public Customer updateEmployee(@RequestBody Customer customers) {
+	public Customer updateCustomer(@RequestBody Customer customers) {
 		
 		customerService.save(customers);
 		
@@ -79,7 +78,7 @@ public class CustomerRestController {
 	
 	
 	@DeleteMapping("/customers/{id}")
-	public String deleteEmployee(@PathVariable int id) {
+	public String deleteCustomer(@PathVariable int id) {
 		
 		Customer customer = customerService.findById(id);
 		
