@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.longnguyenquy.entity.Customer;
+import com.longnguyenquy.exception.CustomerNotFoundException;
 import com.longnguyenquy.service.CustomerService;
 
 @RestController
@@ -41,13 +42,17 @@ public class CustomerRestController {
 	@GetMapping("/customers/{id}")
 	public Customer getCustomer(@PathVariable int id) {
 		
-		Customer theEmployee = customerService.findById(id);
-		
-		if (theEmployee == null) {
-			throw new RuntimeException("Employee id not found - " + id);
+		try {
+			Customer customer = customerService.findById(id);
+			if (customer == null) {
+				throw new CustomerNotFoundException("Customer id not found : " + id);
+
+			}
+			return customer;
+		} catch (NumberFormatException e) {
+
 		}
-		
-		return theEmployee;
+		return null;
 	}
 	
 	
@@ -85,7 +90,7 @@ public class CustomerRestController {
 		// throw exception if null
 		
 		if (customer == null) {
-			throw new RuntimeException("Customer id not found - " + id);
+			throw new CustomerNotFoundException("Customer id not found - " + id);
 		}
 		
 		customerService.deleteById(id);
